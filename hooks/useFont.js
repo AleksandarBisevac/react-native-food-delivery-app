@@ -1,22 +1,36 @@
+import { FontAwesome } from '@expo/vector-icons';
 import * as Font from 'expo-font';
-import React, { useState, useEffect } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import * as React from 'react';
 
-export default useFonts = () => {
-  const [isReady, setIsReady] = useState(false);
+export default function useCachedResources() {
+  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
 
-  const LoadFonts = async () => {
-    const loading = await Font.loadAsync({
-      'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
-      'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
-      'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
-      'Poppins-Italic': require('../assets/fonts/Poppins-Italic.ttf'),
-    });
-    if (loading) {
-      setIsReady(true);
+  // Load any resources or data that we need prior to rendering the app
+  React.useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        SplashScreen.preventAutoHideAsync();
+
+        // Load fonts
+        await Font.loadAsync({
+          ...FontAwesome.font,
+          'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
+          'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
+          'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
+          'Poppins-Italic': require('../assets/fonts/Poppins-Italic.ttf'),
+        });
+      } catch (e) {
+        // We might want to provide this error information to an error reporting service
+        console.warn(e);
+      } finally {
+        setLoadingComplete(true);
+        SplashScreen.hideAsync();
+      }
     }
-  };
 
-  useEffect(() => {
-    LoadFonts();
+    loadResourcesAndDataAsync();
   }, []);
-};
+
+  return isLoadingComplete;
+}

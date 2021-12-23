@@ -36,9 +36,7 @@ const DrawerNavigator = () => {
           },
         }}
         initialRouteName='MainLayout'
-        drawerContent={(props) => (
-          <DrawerContent navigation={props.navigation} />
-        )}
+        drawerContent={(props) => <DrawerContent {...props} />}
       >
         <Drawer.Screen name='MainLayout'>
           {(props) => <MainLayout {...props} />}

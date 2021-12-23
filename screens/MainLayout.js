@@ -1,11 +1,11 @@
+import Animated from 'react-native-reanimated';
 import React from 'react';
 import { useDrawerProgress } from '@react-navigation/drawer';
 import { View, Text } from 'react-native';
-import Animated from 'react-native-reanimated';
 
 const MainLayout = () => {
   const progress = useDrawerProgress();
-  console.log(progress);
+
   const scale = Animated.interpolateNode(progress, {
     inputRange: [0, 1],
     outputRange: [1, 0.8],
@@ -18,7 +18,7 @@ const MainLayout = () => {
 
   const animatedStyle = {
     borderRadius,
-    transform: [{ scale: scale }],
+    transform: [{ scale }],
     overflow: 'hidden',
   };
 
