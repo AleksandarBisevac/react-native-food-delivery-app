@@ -6,7 +6,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './navigation/DrawerNavigator/DrawerNavigator';
 import useCachedResources from './hooks/useFont';
 
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import rootReducer from './stores/rootReducer';
+
 const Stack = createStackNavigator();
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -15,16 +22,18 @@ const App = () => {
     return null;
   } else {
     return (
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName={'Home'}
-        >
-          <Stack.Screen name='Home' component={DrawerNavigator} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+            initialRouteName={'Home'}
+          >
+            <Stack.Screen name='Home' component={DrawerNavigator} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
     );
   }
 };

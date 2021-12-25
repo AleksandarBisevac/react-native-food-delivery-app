@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View, Text } from 'react-native';
 
-const Favourite = () => {
+const MyWallet = () => {
   return (
     <View
       style={{
@@ -11,9 +11,9 @@ const Favourite = () => {
         backgroundColor: 'white',
       }}
     >
-      <Text>Favorite</Text>
+      <Text>MyWallet</Text>
     </View>
   );
 };
 
-export default Favourite;
+export default MyWallet;

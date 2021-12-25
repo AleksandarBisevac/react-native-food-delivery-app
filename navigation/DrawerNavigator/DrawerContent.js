@@ -12,10 +12,9 @@ import {
 
 import DrawItem from './DrawItem';
 
-const DrawerContent = (props) => {
+const DrawerContent = ({ navigation, setSelectedTab, selectedTab }) => {
   return (
     <DrawerContentScrollView
-      {...props}
       scrollEnabled={true}
       contentContainerStyle={{ flex: 1 }}
     >
@@ -30,7 +29,7 @@ const DrawerContent = (props) => {
           <TouchableOpacity
             style={{ alignItems: 'center', justifyContent: 'center' }}
             onPress={() => {
-              props.navigation.closeDrawer();
+              navigation.closeDrawer();
             }}
           >
             <Image
@@ -65,13 +64,42 @@ const DrawerContent = (props) => {
         </TouchableOpacity>
 
         {/* Drawer Items */}
-        <DrawItem label={constants.screens.home} icon={icons.home} />
-        <DrawItem label={constants.screens.my_wallet} icon={icons.wallet} />
+        <DrawItem
+          label={constants.screens.home}
+          icon={icons.home}
+          isFocused={selectedTab === constants.screens.home}
+          onPress={() => {
+            setSelectedTab(constants.screens.home);
+            navigation.navigate('MainLayout');
+          }}
+        />
+        <DrawItem
+          label={constants.screens.my_wallet}
+          icon={icons.wallet}
+          isFocused={selectedTab === constants.screens.my_wallet}
+          onPress={() => {
+            setSelectedTab(constants.screens.my_wallet);
+            navigation.navigate('MyWallet');
+          }}
+        />
         <DrawItem
           label={constants.screens.notification}
           icon={icons.notification}
+          isFocused={selectedTab === constants.screens.notification}
+          onPress={() => {
+            setSelectedTab(constants.screens.notification);
+            navigation.navigate('Notification');
+          }}
         />
-        <DrawItem label={constants.screens.favourite} icon={icons.favourite} />
+        <DrawItem
+          label={constants.screens.favourite}
+          icon={icons.favourite}
+          isFocused={selectedTab === constants.screens.favourite}
+          onPress={() => {
+            setSelectedTab(constants.screens.favourite);
+            navigation.navigate('Favorite');
+          }}
+        />
         {/* Line Divider */}
         <View
           style={{
