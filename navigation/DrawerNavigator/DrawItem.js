@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Image, Text } from 'react-native';
 import { COLORS, FONTS, SIZES } from '../../constants';
 
-const DrawItem = ({ label, icon }) => {
+const DrawItem = ({ label, icon, isFocused, onPress }) => {
   return (
     <TouchableOpacity
       style={{
@@ -12,7 +12,9 @@ const DrawItem = ({ label, icon }) => {
         alignItems: 'center',
         paddingLeft: SIZES.radius,
         borderRadius: SIZES.base,
+        backgroundColor: isFocused ? COLORS.transparentBlack1 : null,
       }}
+      onPress={onPress}
     >
       <Image
         source={icon}
