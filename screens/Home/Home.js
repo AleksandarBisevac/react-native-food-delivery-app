@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+import { Search, FoodList } from '../../components';
 
 const Home = () => {
   return (
     <View
       style={{
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white',
       }}
     >
-      <Text>Home</Text>
+      {/* SEARCH SECTION */}
+      <Search />
+      {/* LIST SECTION */}
+      <FoodList />
     </View>
   );
 };

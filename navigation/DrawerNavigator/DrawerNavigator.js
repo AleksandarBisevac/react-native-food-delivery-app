@@ -6,7 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import DrawerContent from './DrawerContent';
 
-import { MainLayout, Notification, MyWallet, Favourite } from '../../screens';
+import MainLayout from '../../screens/MainLayout';
 
 import { COLORS } from '../../constants';
 
@@ -46,15 +46,6 @@ const DrawerNavigator = ({ setSelectedTab, selectedTab }) => {
       >
         <Drawer.Screen name='MainLayout'>
           {(props) => <MainLayout {...props} />}
-        </Drawer.Screen>
-        <Drawer.Screen name='MyWallet'>
-          {(props) => <MyWallet {...props} />}
-        </Drawer.Screen>
-        <Drawer.Screen name='Notification'>
-          {(props) => <Notification {...props} />}
-        </Drawer.Screen>
-        <Drawer.Screen name='Favorite'>
-          {(props) => <Favourite {...props} />}
         </Drawer.Screen>
       </Drawer.Navigator>
     </View>

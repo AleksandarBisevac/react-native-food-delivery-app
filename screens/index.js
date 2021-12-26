@@ -1,5 +1,3 @@
-import MainLayout from './MainLayout';
-
 // Home
 import Home from './Home/Home';
 
@@ -18,4 +16,4 @@ import Notification from './Notification/Notification';
 //MyWallet
 import MyWallet from './MyWallet/MyWallet';
 
-export { MainLayout, Home, Search, CartTab, Favourite, Notification, MyWallet };
+export { Home, Search, CartTab, Favourite, Notification, MyWallet };
