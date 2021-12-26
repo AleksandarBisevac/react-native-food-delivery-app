@@ -2,9 +2,9 @@ import icons from './icons';
 import images from './images';
 
 const myProfile = {
-  name: 'ByProgrammers',
+  name: 'Aleksandar',
   profile_image: images.profile,
-  address: 'No. 88, Jln Padungan, Kuching',
+  address: 'No. 209, Kamenjar, Novi Sad',
 };
 
 const categories = [
@@ -31,7 +31,7 @@ const hamburger = {
   description: 'Chicken patty hamburger',
   categories: [1, 2],
   price: 15.99,
-  calories: 78,
+  calories: 550,
   isFavourite: true,
   image: require('../assets/dummyData/hamburger.png'),
 };
@@ -41,8 +41,8 @@ const hotTacos = {
   name: 'Hot Tacos',
   description: 'Mexican tortilla & tacos',
   categories: [1, 3],
-  price: 10.99,
-  calories: 78,
+  price: 14.99,
+  calories: 470,
   isFavourite: false,
   image: require('../assets/dummyData/hot_tacos.png'),
 };
@@ -52,8 +52,8 @@ const vegBiryani = {
   name: 'Veg Biryani',
   description: 'Indian Vegetable Biryani',
   categories: [1, 2, 3],
-  price: 10.99,
-  calories: 78,
+  price: 8.99,
+  calories: 280,
   isFavourite: true,
   image: require('../assets/dummyData/veg_biryani.png'),
 };
@@ -63,8 +63,8 @@ const wrapSandwich = {
   name: 'Wrap Sandwich',
   description: 'Grilled vegetables sandwich',
   categories: [1, 2],
-  price: 10.99,
-  calories: 78,
+  price: 7.99,
+  calories: 400,
   isFavourite: true,
   image: require('../assets/dummyData/wrap_sandwich.png'),
 };
