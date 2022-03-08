@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import {
   FoodListHeader,
   HorizontalFoodCard,

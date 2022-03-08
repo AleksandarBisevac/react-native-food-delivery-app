@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, TextInput } from 'react-native';
 
 import { icons, SIZES, COLORS, FONTS } from '../constants';
 
-const Search = () => {
+const Search = ({ setShowFilterModal }) => {
   return (
     <View
       style={{
@@ -30,7 +30,11 @@ const Search = () => {
       />
 
       {/* FILTER BTN */}
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          setShowFilterModal(true);
+        }}
+      >
         <Image
           source={icons.filter}
           style={{ width: 20, height: 20, tintColor: COLORS.black }}

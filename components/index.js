@@ -8,6 +8,9 @@ import Section from './Section';
 import VerticalFoodCard from './VerticalFoodCard';
 import FoodCategoryTab from './FoodCategoryTab';
 import DeliveryInfo from './DeliveryInfo';
+import FilterModal from './FilterModal';
+import IconButton from './IconButton';
+import FilterSection from './FilterSection';
 
 export {
   Header,
@@ -20,4 +23,7 @@ export {
   Section,
   FoodCategoryTab,
   DeliveryInfo,
+  FilterModal,
+  FilterSection,
+  IconButton,
 };
